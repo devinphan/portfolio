@@ -1,3 +1,8 @@
+body #name_underline h2 {
+  font-size: 4ch;
+  margin: 5% 0% 0% 0%;
+  border-bottom: 2px solid oklch(80% 3% 200);
+}
 /* Step 2.4 - Add this at the top of your CSS */
 :root {
   --color-accent: oklch(50% 30% 270);  /* your accent color */
@@ -8,6 +13,8 @@ body {
     /* Set line height to 1.5 times the font size
          and use the OS’s UI font as the website font
        */
+    background-color: black;
+    color: white;
     font: 100%/1.5 system-ui;
     margin-inline: auto;
     max-width: 100ch;
