@@ -3,28 +3,53 @@ body #name_underline h2 {
   margin: 5% 0% 0% 0%;
   border-bottom: 2px solid oklch(80% 3% 200);
 }
-/* Step 2.4 - Add this at the top of your CSS */
+
+/* ========== DARK MODE SUPPORT ========== */
 :root {
-  --color-accent: oklch(50% 30% 270);  /* your accent color */
-  accent-color: var(--color-accent);  /* makes form elements use this color too */
+  color-scheme: light dark;
+  --color-accent: oklch(65% 50% 0);
+  accent-color: var(--color-accent);
 }
 
+/* Make body a positioning context for absolute elements */
 body {
-    /* Set line height to 1.5 times the font size
-         and use the OS’s UI font as the website font
-       */
-    background-color: black;
-    color: white;
-    font: 100%/1.5 system-ui;
-    margin-inline: auto;
-    max-width: 100ch;
-    padding: 20px
-  }
+  position: relative;
+  font-family: system-ui, -apple-system, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
+/* ========== THEME SWITCHER (Top-Right Corner) ========== */
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
+  font-family: inherit;
+  background: canvas;
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color, oklch(50% 10% 200 / 40%));
+  z-index: 1000;
+}
+
+.color-scheme select {
+  font: inherit;
+  background: canvas;
+  color: canvastext;
+  border: none;
+  padding: 0.25rem;
+  cursor: pointer;
+}
+
+/* ========== NAVIGATION STYLES ========== */
 nav {
+  --border-color: oklch(50% 10% 200 / 40%);
+  
   display: flex;
-  margin-bottom: 2%;
-  border-bottom: 1px solid oklch(80% 3% 200);
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
 }
 
 nav a {
@@ -33,59 +58,21 @@ nav a {
   color: inherit;
   text-align: center;
   padding: 0.5em;
+  transition: all 0.2s ease;
 }
 
 nav a.current {
-  border-bottom: 0.4em solid oklch(80% 3% 200);
+  border-bottom: 0.4em solid var(--border-color);
   padding-bottom: 0.1em;
 }
 
 nav a:hover {
   border-bottom: 0.4em solid var(--color-accent);
   padding-bottom: 0.1em;
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
-input, textarea, button {
-  font: inherit;
-}
-
-label:first-of-type {
-  margin-top: 0;
-}
-
-form {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1em;
-  align-items: center;
-}
-
-label {
-  display: grid;
-  grid-template-columns: subgrid;
-  grid-column: 1 / -1;
-}
-
-button {
-  grid-column: 1 / -1;
-  justify-self: start;
-}
-
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-  gap: 1.5em;  
-}
-
-.projects article{
-  grid-template-rows: subgrid;
-  grid-row: span 3;
-  gap: 1em;
-}
-.projects h2{
-  margin: 0
-}
-
+/* ========== HEADING STYLES ========== */
 h1 {
   font-size: 400%;
 }
@@ -93,4 +80,36 @@ h1 {
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   text-wrap: balance;
+}
+
+/* ========== FORM STYLES ========== */
+input, textarea, button, select {
+  font: inherit;
+}
+
+/* ========== PROJECTS GRID ========== */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5em;
+  margin-top: 2em;
+}
+
+.projects article {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  gap: 0.5em;
+  border: 1px solid var(--border-color, oklch(50% 10% 200 / 40%));
+  border-radius: 8px;
+  padding: 1em;
+}
+
+.projects h2 {
+  margin: 0;
+}
+
+.projects img {
+  width: 100%;
+  height: auto;
 }
