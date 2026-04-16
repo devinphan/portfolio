@@ -1,17 +1,10 @@
-body #name_underline h2 {
-  font-size: 4ch;
-  margin: 5% 0% 0% 0%;
-  border-bottom: 2px solid oklch(80% 3% 200);
-}
-
-/* ========== DARK MODE SUPPORT ========== */
+/* ========== BASE STYLES ========== */
 :root {
   color-scheme: light dark;
   --color-accent: oklch(65% 50% 0);
   accent-color: var(--color-accent);
 }
 
-/* Make body a positioning context for absolute elements */
 body {
   position: relative;
   font-family: system-ui, -apple-system, sans-serif;
@@ -46,7 +39,6 @@ body {
 /* ========== NAVIGATION STYLES ========== */
 nav {
   --border-color: oklch(50% 10% 200 / 40%);
-  
   display: flex;
   margin-bottom: 2rem;
   border-bottom: 1px solid var(--border-color);
@@ -82,9 +74,34 @@ h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
 }
 
+/* ========== HOME PAGE SPECIFIC ========== */
+#name_underline h2 {
+  font-size: 4ch;
+  margin: 5% 0% 0% 0%;
+  border-bottom: 2px solid oklch(80% 3% 200);
+}
+
 /* ========== FORM STYLES ========== */
+form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+  align-items: center;
+}
+
 input, textarea, button, select {
   font: inherit;
+  padding: 0.5em;
+}
+
+input, textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  grid-column: 1 / -1;
+  justify-self: start;
 }
 
 /* ========== PROJECTS GRID ========== */
@@ -112,4 +129,23 @@ input, textarea, button, select {
 .projects img {
   width: 100%;
   height: auto;
+}
+
+/* ========== RESUME PAGE STYLES ========== */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+article {
+  margin-bottom: 1.5rem;
+}
+
+time {
+  font-style: italic;
+  color: oklch(50% 10% 200);
 }

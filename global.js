@@ -1,87 +1,101 @@
-// global.js - Complete file with navigation and persistent theme switcher
+// global.js - Complete file for all steps
 
-// ========== NAVIGATION MENU (Step 3) ==========
+// ========== STEP 1: Initial setup ==========
+console.log('IT’S ALIVE!');
 
+function $$(selector, context = document) {
+  return Array.from(context.querySelectorAll(selector));
+}
+
+// ========== STEP 3: Automatic navigation menu ==========
+
+// Define all pages
 const pages = [
-    { url: '', title: 'Home' },
-    { url: 'projects/', title: 'Projects' },
-    { url: 'contact/', title: 'Contact' },
-    { url: 'Resume/', title: 'Resume' },
-    { url: 'https://github.com/devinphan', title: 'GitHub' }
-  ];
+  { url: '', title: 'Home' },
+  { url: 'projects/', title: 'Projects' },
+  { url: 'contact/', title: 'Contact' },
+  { url: 'Resume/', title: 'Resume' },
+  { url: 'https://github.com/devinphan', title: 'GitHub' }
+];
+
+// Set base path for local vs GitHub Pages
+const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
+  ? "/portfolio/"  // Local path - change to your folder name
+  : "/portfolio/";  // GitHub Pages repo name
+
+// Create nav element
+const nav = document.createElement('nav');
+document.body.prepend(nav);
+
+// Loop through pages and create links
+for (let page of pages) {
+  let url = page.url;
+  const title = page.title;
   
-  const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
-    ? "/"
-    : "/portfolio/";  // ← Changed to match your folder name!
-  
-  const nav = document.createElement('nav');
-  document.body.prepend(nav);
-  
-  for (let page of pages) {
-    let url = page.url;
-    const title = page.title;
-    
-    if (!url.startsWith('http')) {
-      url = BASE_PATH + url;
-    }
-    
-    let a = document.createElement('a');
-    a.href = url;
-    a.textContent = title;
-    
-    a.classList.toggle(
-      'current',
-      a.host === location.host && a.pathname === location.pathname
-    );
-    
-    if (a.host !== location.host) {
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
-    }
-    
-    nav.append(a);
+  // Fix URL for internal links
+  if (!url.startsWith('http')) {
+    url = BASE_PATH + url;
   }
   
-  // ========== THEME SWITCHER (Steps 4.2 - 4.5) ==========
+  // Create link element
+  let a = document.createElement('a');
+  a.href = url;
+  a.textContent = title;
   
-  // Add the theme dropdown
-  document.body.insertAdjacentHTML(
-    'afterbegin',
-    `<label class="color-scheme">
-      Theme:
-      <select>
-        <option value="light dark">Automatic</option>
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-      </select>
-    </label>`
+  // Add current class if this is the current page
+  a.classList.toggle(
+    'current',
+    a.host === location.host && a.pathname === location.pathname
   );
   
-  // Get the select element
-  const select = document.querySelector('.color-scheme select');
-  
-  // Function to set the color scheme (reusable)
-  function setColorScheme(colorScheme) {
-    document.documentElement.style.setProperty('color-scheme', colorScheme);
+  // Open external links in new tab
+  if (a.host !== location.host) {
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
   }
   
-  // Load saved preference from localStorage when page loads
-  if ("colorScheme" in localStorage) {
-    const savedTheme = localStorage.colorScheme;
-    select.value = savedTheme;
-    setColorScheme(savedTheme);
-  }
-  
-  // Save preference when user changes the theme
-  select.addEventListener('input', function (event) {
-    const theme = event.target.value;
-    console.log('color scheme changed to', theme);
-    
-    setColorScheme(theme);
-    localStorage.colorScheme = theme;
-  });
+  nav.append(a);
+}
 
-  // ========== CONTACT FORM HANDLING (Step 5 - Optional) ==========
+// ========== STEP 4: Dark mode switcher ==========
+
+// Add theme switcher to page
+document.body.insertAdjacentHTML(
+  'afterbegin',
+  `<label class="color-scheme">
+    Theme:
+    <select>
+      <option value="light dark">Automatic</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
+  </label>`
+);
+
+// Get reference to select element
+const select = document.querySelector('.color-scheme select');
+
+// Function to set color scheme (reusable)
+function setColorScheme(colorScheme) {
+  document.documentElement.style.setProperty('color-scheme', colorScheme);
+}
+
+// Load saved preference from localStorage
+if ("colorScheme" in localStorage) {
+  const savedTheme = localStorage.colorScheme;
+  select.value = savedTheme;
+  setColorScheme(savedTheme);
+}
+
+// Save preference when user changes theme
+select.addEventListener('input', function (event) {
+  const theme = event.target.value;
+  console.log('color scheme changed to', theme);
+  setColorScheme(theme);
+  localStorage.colorScheme = theme;
+});
+
+// ========== STEP 5: Contact form handling ==========
 
 const form = document.querySelector('#contact-form');
 
