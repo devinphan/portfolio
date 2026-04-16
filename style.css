@@ -13,18 +13,20 @@ body {
   padding: 20px;
 }
 
-/* ========== THEME SWITCHER (Top-Right Corner) ========== */
+/* ========== THEME SWITCHER (Right-aligned, inline) ========== */
 .color-scheme {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
   font-size: 80%;
   font-family: inherit;
+  gap: 0.5rem;
   background: canvas;
   padding: 0.25rem 0.5rem;
   border-radius: 8px;
   border: 1px solid var(--border-color, oklch(50% 10% 200 / 40%));
-  z-index: 1000;
+  width: fit-content;
+  margin-left: auto;
 }
 
 .color-scheme select {
