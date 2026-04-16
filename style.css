@@ -1,4 +1,18 @@
-/* ========== HEADER CONTAINER (puts theme and nav on same line) ========== */
+/* ========== BASE STYLES ========== */
+:root {
+  color-scheme: light dark;
+  --color-accent: oklch(65% 50% 0);
+  accent-color: var(--color-accent);
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* ========== HEADER CONTAINER ========== */
 .header-container {
   display: flex;
   justify-content: space-between;
@@ -11,16 +25,15 @@
 /* ========== THEME SWITCHER ========== */
 .color-scheme {
   display: flex;
-  align-items: center;     /* This puts "Theme:" and dropdown on same line */
-  gap: 0.5rem;             /* Adds space between "Theme:" and the dropdown */
+  align-items: center;
+  gap: 0.5rem;
   font-size: 80%;
   font-family: inherit;
   background: canvas;
   padding: 0.25rem 0.5rem;
   border-radius: 8px;
   border: 1px solid var(--border-color, oklch(50% 10% 200 / 40%));
-  width: fit-content;
-  margin-left: auto;
+  white-space: nowrap;
 }
 
 .color-scheme select {
@@ -58,4 +71,90 @@ nav a:hover {
   border-bottom: 0.4em solid var(--color-accent);
   padding-bottom: 0.1em;
   background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+}
+
+/* ========== HEADING STYLES ========== */
+h1 {
+  font-size: 400%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+/* ========== HOME PAGE SPECIFIC ========== */
+#name_underline h2 {
+  font-size: 4ch;
+  margin: 5% 0% 0% 0%;
+  border-bottom: 2px solid oklch(80% 3% 200);
+}
+
+/* ========== FORM STYLES ========== */
+form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+  align-items: center;
+}
+
+input, textarea, button, select {
+  font: inherit;
+  padding: 0.5em;
+}
+
+input, textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  grid-column: 1 / -1;
+  justify-self: start;
+}
+
+/* ========== PROJECTS GRID ========== */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5em;
+  margin-top: 2em;
+}
+
+.projects article {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  gap: 0.5em;
+  border: 1px solid var(--border-color, oklch(50% 10% 200 / 40%));
+  border-radius: 8px;
+  padding: 1em;
+}
+
+.projects h2 {
+  margin: 0;
+}
+
+.projects img {
+  width: 100%;
+  height: auto;
+}
+
+/* ========== RESUME PAGE STYLES ========== */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+article {
+  margin-bottom: 1.5rem;
+}
+
+time {
+  font-style: italic;
+  color: oklch(50% 10% 200);
 }

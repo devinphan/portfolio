@@ -23,9 +23,14 @@ const BASE_PATH = (location.hostname === "localhost" || location.hostname === "1
   ? "/portfolio/"  // Local path - change to your folder name
   : "/portfolio/";  // GitHub Pages repo name
 
+// Create a header container to hold both theme switcher and nav
+const headerContainer = document.createElement('div');
+headerContainer.className = 'header-container';
+document.body.prepend(headerContainer);
+
 // Create nav element
 const nav = document.createElement('nav');
-document.body.prepend(nav);
+headerContainer.append(nav);
 
 // Loop through pages and create links
 for (let page of pages) {
@@ -59,12 +64,10 @@ for (let page of pages) {
 
 // ========== STEP 4: Dark mode switcher ==========
 
-// Add theme switcher to page
-document.body.insertAdjacentHTML(
-  'afterbegin',
-  `<label class="color-scheme">
-    Theme:
-    <select>
+// Add theme switcher to header container - FIXED: "Theme:" and select on same line
+headerContainer.insertAdjacentHTML(
+  'beforeend',
+  `<label class="color-scheme">Theme: <select>
       <option value="light dark">Automatic</option>
       <option value="light">Light</option>
       <option value="dark">Dark</option>
