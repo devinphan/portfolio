@@ -1,62 +1,74 @@
 [
     {
-        "title": "Lorem ipsum dolor sit.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic modi dolorum voluptatibus porro distinctio sed voluptatem, optio dolore unde. Dolorum libero fugiat quibusdam recusandae natus dolorem illo. Atque, beatae vero."
+      "title": "NBA Player Data Analysis",
+      "year": "2023",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Investigating if a higher BMI leads to an increase in risk of injury."
     },
     {
-        "title": "Nostrum laudantium cum nesciunt.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Aperiam dolores necessitatibus optio recusandae reprehenderit, quis quo totam asperiores expedita voluptate sapiente? Odit, dicta? Laborum eveniet, error aperiam pariatur sed rem quisquam alias esse delectus debitis obcaecati libero earum!"
+      "title": "League of Legends Analysis",
+      "year": "2024",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Predicting game outcomes based on early game analytics."
     },
     {
-        "title": "Neque aperiam praesentium doloribus!",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Eum voluptatum dolore exercitationem suscipit animi molestiae dignissimos rem obcaecati distinctio tempore, ipsa temporibus aliquid sunt saepe, veritatis possimus! Rem alias doloribus ea ratione distinctio libero nulla corrupti debitis."
+      "title": "GeoGessur SoCal Image Classifier",
+      "year": "2025",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Image classifier that classifies an image as from being from some SoCal city."
     },
     {
-        "title": "Id rerum hic assumenda!",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Minima, officia. Doloremque, voluptatum vel. Mollitia libero aut dolorem? Deleniti provident nihil, repudiandae quod sequi ducimus adipisci? Ut, beatae amet? Odit quis aliquid nulla quisquam ea incidunt magnam necessitatibus sint."
+      "title": "Shopping on a Budget: Where to go? Whole Foods or Target",
+      "year": "2024",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Analyzing price patterns amongst food categories between Whole Foods and Target."
     },
     {
-        "title": "Cum beatae ullam ad.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Qui cum mollitia dolore eligendi. Voluptatum culpa totam, repellendus placeat deserunt eligendi minima omnis natus quidem possimus sed accusantium tempora pariatur, et ut beatae ipsum aspernatur. Rem facilis nobis architecto."
+      "title": "Personal Portfolio Website",
+      "year": "2022",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Responsive portfolio website showcasing my projects and skills with dark mode support."
     },
     {
-        "title": "Voluptates voluptate recusandae maiores.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Ipsam dolorum blanditiis qui, quo obcaecati molestiae ad cum. Praesentium dolore adipisci molestiae exercitationem perferendis. Fuga enim hic eos illo eligendi adipisci? Ea sint tempora dignissimos esse quos dicta ipsam."
+      "title": "Weather Forecast CLI",
+      "year": "2023",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Command-line tool that fetches and displays 5-day weather forecasts for any city."
     },
     {
-        "title": "Iusto eaque labore velit?",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Minus est soluta saepe alias? Atque quaerat quae, provident magni consectetur minima laboriosam nobis ut quo! Reiciendis vitae eos, laboriosam dolor atque, aspernatur sunt sint voluptates aut facere eligendi repudiandae!"
+      "title": "Task Management API",
+      "year": "2024",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "RESTful API for managing tasks with user authentication and database persistence."
     },
     {
-        "title": "Odit aperiam recusandae autem.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Distinctio, provident sapiente totam unde error ullam repellendus eos hic sint natus laborum facere, magnam nulla ex voluptatibus aperiam culpa laboriosam reiciendis itaque placeat voluptas. Natus laboriosam excepturi omnis totam?"
+      "title": "Data Visualization Dashboard",
+      "year": "2025",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Interactive dashboard displaying real-time data trends using D3.js charts."
     },
     {
-        "title": "Illum est quia tenetur.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Tenetur numquam alias atque cumque quos provident eligendi natus consequuntur praesentium ducimus at voluptatibus, ipsa nam voluptatem dolore mollitia, harum vel! Aliquam explicabo veniam odit aliquid assumenda, reprehenderit suscipit. Eveniet!"
+      "title": "E-commerce Product Filter",
+      "year": "2023",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "JavaScript filtering system for products by category, price range, and ratings."
     },
     {
-        "title": "Animi possimus voluptatem laborum!",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Qui nulla ipsam delectus corporis minima distinctio provident rem, enim dolores rerum, porro et perferendis maxime repudiandae, illo ea accusantium dolorem inventore esse similique sint fugiat. Nam nobis ducimus quasi!"
+      "title": "Mobile Flashcard App",
+      "year": "2024",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "React Native study app with spaced repetition algorithm and quiz mode."
     },
     {
-        "title": "Nemo ab amet eligendi.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Cum qui nisi saepe nobis itaque tenetur, maiores deserunt neque adipisci ullam quod, minima, facilis eligendi! Sequi dolore non corrupti nihil vel. Quam sequi tempora, dignissimos natus illo possimus eum?"
+      "title": "Real-time Chat Application",
+      "year": "2022",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "WebSocket-based chat app with rooms, private messaging, and file sharing."
     },
     {
-        "title": "Commodi unde nisi animi.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Pariatur cupiditate magni, repellendus explicabo consequuntur quasi consequatur voluptates eos soluta minus non ipsum adipisci quidem voluptatum laborum, totam beatae asperiores architecto. Aliquam nulla reiciendis exercitationem dolorem deleniti dicta amet?"
+      "title": "Budget Tracker PWA",
+      "year": "2025",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Progressive Web App for tracking expenses with offline support and data export."
     }
-]
+  ]
