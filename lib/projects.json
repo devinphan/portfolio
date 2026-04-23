@@ -1,24 +1,27 @@
 [
     {
-        "title": "Lorem ipsum dolor sit.",
+        "title": "NBA Player Data Analysis",
+        "year": 2025,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic modi dolorum voluptatibus porro distinctio sed voluptatem, optio dolore unde. Dolorum libero fugiat quibusdam recusandae natus dolorem illo. Atque, beatae vero."
+        "description": "Investigating if a higher BMI leads to an increase in risk of injury."
     },
     {
-        "title": "Nostrum laudantium cum nesciunt.",
+        "title": "League of Legends Analysis",
+        "year": 2025,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Aperiam dolores necessitatibus optio recusandae reprehenderit, quis quo totam asperiores expedita voluptate sapiente? Odit, dicta? Laborum eveniet, error aperiam pariatur sed rem quisquam alias esse delectus debitis obcaecati libero earum!"
+        "description": "Predicting game outcomes based on early game analytics."
     },
     {
-        "title": "Neque aperiam praesentium doloribus!",
+        "title": "GeoGessur SoCal Image  Classifier",
+        "year": 2026,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Eum voluptatum dolore exercitationem suscipit animi molestiae dignissimos rem obcaecati distinctio tempore, ipsa temporibus aliquid sunt saepe, veritatis possimus! Rem alias doloribus ea ratione distinctio libero nulla corrupti debitis."
+        "description": "Image classifier that classifies an image as from being from some SoCal city."
     },
     {
-        "title": "Id rerum hic assumenda!",
+        "title": "Shopping on a Budget: Where to go? Whole Foods or Target",
+        "year": 2026,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Minima, officia. Doloremque, voluptatum vel. Mollitia libero aut dolorem? Deleniti provident nihil, repudiandae quod sequi ducimus adipisci? Ut, beatae amet? Odit quis aliquid nulla quisquam ea incidunt magnam necessitatibus sint."
-    },
+        "description": "Analyzing price patterns amongst food categories between Whole Foods and Target."
     {
         "title": "Cum beatae ullam ad.",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
