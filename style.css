@@ -158,3 +158,30 @@ time {
   font-style: italic;
   color: oklch(50% 10% 200);
 }
+
+/* ========== GITHUB STATS STYLES ========== */
+#profile-stats {
+  background: canvas;
+  border: 1px solid var(--border-color, oklch(50% 10% 200 / 40%));
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  margin: 1rem 0 2rem 0;
+  max-width: 400px;
+}
+
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1rem;
+  margin: 0;
+}
+
+#profile-stats dt {
+  font-weight: bold;
+  color: var(--color-accent, oklch(65% 50% 0));
+}
+
+#profile-stats dd {
+  margin: 0;
+  text-align: right;
+}

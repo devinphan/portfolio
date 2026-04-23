@@ -1,4 +1,4 @@
-// global.js - Complete file for all steps
+// global.js - Complete file with all functions
 
 // ========== STEP 1: Initial setup ==========
 console.log('IT’S ALIVE!');
@@ -7,9 +7,79 @@ function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
 
-// ========== STEP 3: Automatic navigation menu ==========
+// ========== STEP 1.2: fetchJSON Function ==========
+export async function fetchJSON(url) {
+  try {
+    console.log('Fetching from URL:', url);
+    const response = await fetch(url);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    console.log('Fetched data:', data);
+    return data;
+    
+  } catch (error) {
+    console.error('Error fetching JSON:', error);
+    return [];
+  }
+}
 
-// Define all pages
+// ========== STEP 1.4: renderProjects Function ==========
+function escapeHTML(str) {
+  if (!str) return '';
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+  if (!containerElement) {
+    console.error('renderProjects: containerElement is null or undefined');
+    return;
+  }
+  
+  const validHeadings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+  if (!validHeadings.includes(headingLevel)) {
+    console.warn(`Invalid headingLevel "${headingLevel}", defaulting to "h2"`);
+    headingLevel = 'h2';
+  }
+  
+  containerElement.innerHTML = '';
+  
+  if (!projects || !Array.isArray(projects) || projects.length === 0) {
+    containerElement.innerHTML = '<p>No projects found. Check back later!</p>';
+    return;
+  }
+  
+  for (let project of projects) {
+    const article = document.createElement('article');
+    
+    const title = escapeHTML(project.title) || 'Untitled Project';
+    const image = project.image || 'https://via.placeholder.com/300x200?text=No+Image';
+    const description = escapeHTML(project.description) || 'No description available.';
+    
+    article.innerHTML = `
+      <${headingLevel}>${title}</${headingLevel}>
+      <img src="${image}" alt="${title}">
+      <p>${description}</p>
+    `;
+    
+    containerElement.appendChild(article);
+  }
+}
+
+// ========== STEP 3: GitHub API Integration ==========
+export async function fetchGitHubData(username) {
+  return fetchJSON(`https://api.github.com/users/${username}`);
+}
+
+// ========== Navigation Menu (Step 3 from earlier) ==========
 const pages = [
   { url: '', title: 'Home' },
   { url: 'projects/', title: 'Projects' },
@@ -18,42 +88,34 @@ const pages = [
   { url: 'https://github.com/devinphan', title: 'GitHub' }
 ];
 
-// Set base path for local vs GitHub Pages
 const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
-  ? "/portfolio/"  // Local path - change to your folder name
-  : "/portfolio/";  // GitHub Pages repo name
+  ? "/portfolio/"
+  : "/portfolio/";
 
-// Create a header container to hold both theme switcher and nav
 const headerContainer = document.createElement('div');
 headerContainer.className = 'header-container';
 document.body.prepend(headerContainer);
 
-// Create nav element
 const nav = document.createElement('nav');
 headerContainer.append(nav);
 
-// Loop through pages and create links
 for (let page of pages) {
   let url = page.url;
   const title = page.title;
   
-  // Fix URL for internal links
   if (!url.startsWith('http')) {
     url = BASE_PATH + url;
   }
   
-  // Create link element
   let a = document.createElement('a');
   a.href = url;
   a.textContent = title;
   
-  // Add current class if this is the current page
   a.classList.toggle(
     'current',
     a.host === location.host && a.pathname === location.pathname
   );
   
-  // Open external links in new tab
   if (a.host !== location.host) {
     a.target = '_blank';
     a.rel = 'noopener noreferrer';
@@ -62,9 +124,7 @@ for (let page of pages) {
   nav.append(a);
 }
 
-// ========== STEP 4: Dark mode switcher ==========
-
-// Add theme switcher to header container - FIXED: "Theme:" and select on same line
+// ========== Dark Mode Switcher ==========
 headerContainer.insertAdjacentHTML(
   'beforeend',
   `<label class="color-scheme">Theme: <select>
@@ -75,22 +135,18 @@ headerContainer.insertAdjacentHTML(
   </label>`
 );
 
-// Get reference to select element
 const select = document.querySelector('.color-scheme select');
 
-// Function to set color scheme (reusable)
 function setColorScheme(colorScheme) {
   document.documentElement.style.setProperty('color-scheme', colorScheme);
 }
 
-// Load saved preference from localStorage
 if ("colorScheme" in localStorage) {
   const savedTheme = localStorage.colorScheme;
   select.value = savedTheme;
   setColorScheme(savedTheme);
 }
 
-// Save preference when user changes theme
 select.addEventListener('input', function (event) {
   const theme = event.target.value;
   console.log('color scheme changed to', theme);
@@ -98,8 +154,7 @@ select.addEventListener('input', function (event) {
   localStorage.colorScheme = theme;
 });
 
-// ========== STEP 5: Contact form handling ==========
-
+// ========== Contact Form Handling ==========
 const form = document.querySelector('#contact-form');
 
 form?.addEventListener('submit', function(event) {

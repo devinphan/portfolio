@@ -12,7 +12,44 @@
   </div>
   <p>UCSD 3rd year Data Science Major</p>
   <img src="imagess/penguins.jpg" alt="4 penguins walking on the beach.">
+
+  <!-- GitHub Profile Stats Section with Dropdown -->
+  <h2>GitHub Profile Stats</h2>
   
+  <!-- Dropdown to select which stats to display -->
+  <div class="stats-selector">
+    <label for="stat-select">Choose a stat to display:</label>
+    <select id="stat-select">
+      <option value="public_repos">📁 Public Repositories</option>
+      <option value="public_gists">📄 Public Gists</option>
+      <option value="followers">👥 Followers</option>
+      <option value="following">👤 Following</option>
+      <option value="name">🏷️ Name</option>
+      <option value="bio">📝 Bio</option>
+      <option value="location">📍 Location</option>
+      <option value="created_at">📅 Joined GitHub</option>
+    </select>
+  </div>
+
+  <!-- Container for displaying the selected stat -->
+  <div id="profile-stats">
+    <p>Select a stat from the dropdown above to see your GitHub data!</p>
+  </div>
+
+  <!-- Full GitHub Stats (optional - show all stats) -->
+  <div class="github-stats-full">
+    <h3>All GitHub Stats</h3>
+    <div id="all-profile-stats"></div>
+  </div>
+
+  <!-- Latest Projects Section -->
+  <h2>Latest Projects</h2>
+  <div class="projects">
+    <!-- Dynamically added project content will appear here -->
+  </div>
+
+  <!-- Scripts -->
   <script type="module" src="global.js"></script>
+  <script type="module" src="index.js"></script>
 </body>
 </html>
