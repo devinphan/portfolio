@@ -24,51 +24,51 @@
       "description": "Analyzing price patterns amongst food categories between Whole Foods and Target."
     },
     {
-      "title": "Personal Portfolio Website",
+      "title": "Lorem ipsum dolor sit.",
       "year": "2022",
       "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Responsive portfolio website showcasing my projects and skills with dark mode support."
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
     },
     {
-      "title": "Weather Forecast CLI",
+      "title": "Consectetur adipiscing elit.",
       "year": "2023",
       "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Command-line tool that fetches and displays 5-day weather forecasts for any city."
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
     },
     {
-      "title": "Task Management API",
-      "year": "2024",
-      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "RESTful API for managing tasks with user authentication and database persistence."
-    },
-    {
-      "title": "Data Visualization Dashboard",
+      "title": "Sed do eiusmod tempor.",
       "year": "2025",
       "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Interactive dashboard displaying real-time data trends using D3.js charts."
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
     },
     {
-      "title": "E-commerce Product Filter",
-      "year": "2023",
-      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "JavaScript filtering system for products by category, price range, and ratings."
-    },
-    {
-      "title": "Mobile Flashcard App",
-      "year": "2024",
-      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "React Native study app with spaced repetition algorithm and quiz mode."
-    },
-    {
-      "title": "Real-time Chat Application",
+      "title": "Ut labore et dolore magna.",
       "year": "2022",
       "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "WebSocket-based chat app with rooms, private messaging, and file sharing."
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
     },
     {
-      "title": "Budget Tracker PWA",
+      "title": "Ut enim ad minim veniam.",
+      "year": "2024",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+    },
+    {
+      "title": "Quis nostrud exercitation.",
+      "year": "2026",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+    },
+    {
+      "title": "Duis aute irure dolor.",
+      "year": "2023",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+    },
+    {
+      "title": "Excepteur sint occaecat.",
       "year": "2025",
       "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Progressive Web App for tracking expenses with offline support and data export."
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
     }
   ]
