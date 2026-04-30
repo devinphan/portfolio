@@ -1,4 +1,4 @@
-// global.js - Complete file with all functions
+// global.js - Complete file for all steps
 
 // ========== STEP 1: Initial setup ==========
 console.log('IT’S ALIVE!');
@@ -27,7 +27,8 @@ export async function fetchJSON(url) {
   }
 }
 
-// ========== STEP 1.4: renderProjects Function ==========
+// ========== STEP 1.4: renderProjects Function (UPDATED with year) ==========
+
 function escapeHTML(str) {
   if (!str) return '';
   return str
@@ -63,11 +64,15 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     const title = escapeHTML(project.title) || 'Untitled Project';
     const image = project.image || 'https://via.placeholder.com/300x200?text=No+Image';
     const description = escapeHTML(project.description) || 'No description available.';
+    const year = project.year || 'N/A';
     
     article.innerHTML = `
       <${headingLevel}>${title}</${headingLevel}>
       <img src="${image}" alt="${title}">
-      <p>${description}</p>
+      <div class="project-content">
+        <p>${description}</p>
+        <p class="project-year">${year}</p>
+      </div>
     `;
     
     containerElement.appendChild(article);
@@ -77,6 +82,16 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
 // ========== STEP 3: GitHub API Integration ==========
 export async function fetchGitHubData(username) {
   return fetchJSON(`https://api.github.com/users/${username}`);
+}
+
+// Helper function to enhance GitHub data with custom info
+export function enhanceGitHubData(data) {
+  return {
+    ...data,
+    name: data.name || "Devin Phan",
+    bio: data.bio || "📊 3rd year Data Science major at UC San Diego | Passionate about machine learning and data visualization",
+    location: data.location || "San Diego, CA"
+  };
 }
 
 // ========== Navigation Menu (Step 3 from earlier) ==========

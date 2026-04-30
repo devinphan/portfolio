@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Project 2: Persuasive or Deceptive Visualization? | DSC 106</title>
+    <!-- Simple, clean styling to match academic report tone -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #faf9f8;   /* soft off-white, easy on eyes */
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            color: #1e1e2a;
+            padding: 2rem 1rem;
+        }
+
+        .report-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05), 0 4px 8px rgba(0, 0, 0, 0.02);
+            overflow: hidden;
+            padding: 2rem 2rem 3rem 2rem;
+        }
+
+        /* header area */
+        .report-header {
+            border-bottom: 2px solid #eae6e0;
+            padding-bottom: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            background: linear-gradient(135deg, #1a2a3f, #2c3e4e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .subhead {
+            font-size: 1rem;
+            color: #4b5563;
+            border-left: 4px solid #3b82f6;
+            padding-left: 1rem;
+            margin: 0.75rem 0 0.2rem 0;
+            font-weight: 450;
+        }
+
+        .author-line {
+            font-size: 1rem;
+            color: #2c3e50;
+            margin-top: 0.5rem;
+            font-weight: 500;
+            background: #f1f5f9;
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+        }
+
+        /* proposition highlight */
+        .proposition-block {
+            background: #fef9e6;
+            border-left: 6px solid #f59e0b;
+            padding: 1.2rem 1.8rem;
+            margin: 1.8rem 0 2rem 0;
+            border-radius: 20px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }
+
+        .proposition-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            color: #b45309;
+            margin-bottom: 0.4rem;
+        }
+
+        .proposition-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c3e2f;
+            line-height: 1.3;
+        }
+
+        /* sections */
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 3px solid #e2e8f0;
+            display: inline-block;
+        }
+
+        .stance-card {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.05);
+            margin: 1.5rem 0;
+            padding: 0.2rem 0 1rem 0;
+            transition: all 0.1s ease;
+        }
+
+        .stance-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1rem;
+            padding: 0.5rem 0 0 0;
+        }
+
+        .badge-for {
+            background: #2563eb;
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.25rem 1rem;
+            border-radius: 30px;
+            letter-spacing: 0.3px;
+        }
+
+        .badge-against {
+            background: #dc2626;
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.25rem 1rem;
+            border-radius: 30px;
+        }
+
+        .stance-sub {
+            font-size: 1.3rem;
+            font-weight: 550;
+            color: #0f172a;
+        }
+
+        .rationale-list {
+            margin-top: 0.75rem;
+            margin-left: 1.5rem;
+            list-style-type: none;
+        }
+
+        .rationale-list li {
+            margin-bottom: 0.9rem;
+            position: relative;
+            padding-left: 1.6rem;
+            font-size: 1rem;
+            color: #2d3e50;
+        }
+
+        .rationale-list li::before {
+            content: "•";
+            color: #3b82f6;
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        .stance-card:has(.badge-against) .rationale-list li::before {
+            color: #dc2626;
+        }
+
+        /* final reflection */
+        .reflection-box {
+            background: #f8fafc;
+            border-radius: 24px;
+            padding: 1.6rem 2rem;
+            margin-top: 1.8rem;
+            border: 1px solid #eef2f6;
+            line-height: 1.65;
+        }
+
+        .reflection-box p {
+            margin-bottom: 1rem;
+            font-size: 1.02rem;
+        }
+
+        .reflection-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        hr {
+            margin: 1.5rem 0;
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, #e2e8f0, transparent);
+        }
+
+        footer {
+            margin-top: 2.5rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #6c757d;
+            border-top: 1px solid #edf2f7;
+            padding-top: 1.8rem;
+        }
+
+        @media (max-width: 680px) {
+            .report-container {
+                padding: 1.5rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .proposition-text {
+                font-size: 1.2rem;
+            }
+            .stance-sub {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="report-container">
+    <div class="report-header">
+        <h1>Project 2: Persuasive or Deceptive Visualization?</h1>
+        <div class="author-line">Alex Rivera — arivera@ucsd.edu</div>
+        <div class="subhead">Critical analysis of visual framing & rhetorical choices in data storytelling</div>
+    </div>
+
+    <!-- PROPOSITION section (dynamic and clear) -->
+    <div class="proposition-block">
+        <div class="proposition-label">📌 Proposition</div>
+        <div class="proposition-text">Climate change communication is more effective when visualizations emphasize local, short-term impacts rather than global long-term trends.</div>
+    </div>
+
+    <!-- FOR the Proposition -->
+    <div class="section">
+        <h2 class="section-title">FOR the Proposition</h2>
+        <div class="stance-card">
+            <div class="stance-header">
+                <span class="badge-for">persuasive · FOR</span>
+                <span class="stance-sub">Design decisions that strengthen local & near‑term framing</span>
+            </div>
+            <ul class="rationale-list">
+                <li><strong>Anchoring in familiar geography:</strong> Used a base map of San Diego County with color intensity showing days above 90°F since 2000. Viewers immediately recognize their own region, increasing emotional engagement and perceived personal relevance.</li>
+                <li><strong>Short temporal windows & rolling averages:</strong> Instead of showing a 100-year trend, the line chart highlights changes over the last 15 years with a 3-year moving average. This emphasizes recent acceleration, making the viewer feel that “this is happening now.”</li>
+                <li><strong>Careful annotation & concrete consequences:</strong> Added callouts like “+12 additional extreme heat days compared to 2005” and icons of local agriculture (avocados, coastal flooding risks). Concrete local stakes reduce psychological distance and encourage support for pro-climate policies.</li>
+            </ul>
+        </div>
+        <p style="font-size: 0.9rem; color: #4b5563; margin-top: -0.5rem; margin-bottom: 1rem;">✨ <em>These choices align with theories of risk communication — vivid, local, and immediate data are more persuasive than abstract global curves.</em></p>
+    </div>
+
+    <!-- AGAINST the Proposition -->
+    <div class="section">
+        <h2 class="section-title">AGAINST the Proposition</h2>
+        <div class="stance-card">
+            <div class="stance-header">
+                <span class="badge-against">counter · AGAINST</span>
+                <span class="stance-sub">Potential deception & pitfalls of local-only framing</span>
+            </div>
+            <ul class="rationale-list">
+                <li><strong>Selective baselines and cherry‑picking:</strong> By focusing only on the last 15 years (which may include natural variability), the visualization could unintentionally mislead viewers about long-term trends unless contextualized with a longer reference period — a risk of “deception by omission.”</li>
+                <li><strong>Ignoring global scale reduces scientific accuracy:</strong> Climate change is a planetary phenomenon. A purely local chart might cause viewers to underestimate total risk if their region temporarily experiences less extreme weather, undermining the full scientific picture.</li>
+                <li><strong>Vulnerable to spatial cherry‑picking:</strong> Choosing a region with dramatic recent changes (e.g., rapid warming) can create a persuasive but non‑representative narrative. To be both ethical and persuasive, visualizations should always include uncertainty or comparative global context, otherwise they risk being deceptive despite good intentions.</li>
+            </ul>
+        </div>
+        <p style="font-size: 0.9rem; color: #4b5563; margin-top: -0.5rem;">⚠️ <em>Even “persuasive” designs can unintentionally deceive if they sacrifice statistical integrity. The best practice balances emotional resonance with transparent data ranges.</em></p>
+    </div>
+
+    <!-- Final Reflection: detailed paragraphs as requested -->
+    <div class="section">
+        <h2 class="section-title">Final Reflection</h2>
+        <div class="reflection-box">
+            <p><strong>The fine line between persuasion and deception:</strong> Throughout this project, I learned that all visualizations embody rhetorical choices — from axis limits to color palettes to which time period is emphasized. The FOR-the-proposition design used local, short-term framing to generate urgency and personal connection, which research suggests significantly increases motivation to act. However, the AGAINST critique reminded me that without proper caveats (e.g., multi‑decadal baseline, global temperature overlay), the same tactics could mislead an audience about the magnitude or cause of change. One person’s “effective communication” is another’s “misleading chart.”</p>
+            <p><strong>Ethical responsibilities of the designer:</strong> As data scientists and visual storytellers, we have a duty to remain transparent about our design choices. A persuasive visualization is not inherently deceptive — but it becomes deceptive if it omits critical context, manipulates scale to exaggerate differences, or fails to represent uncertainty. In my final redesign (not shown here but conceptualized), I combined a local focused sparkline with a small global trend annotation, and included a clear note about baseline selection. This hybrid approach preserves the persuasive power of local data while protecting against deception via omission. The key is <strong>intentional transparency</strong> rather than hidden manipulation.</p>
+            <p><strong>Takeaways for future work:</strong> I will always ask: “What story am I privileging, and what alternative stories might my design choices hide?” Using pre-attentive attributes (color, position, size) is powerful, but I must test multiple representations and provide accessible data sources. Ultimately, the most ethical visualization is one where the designer’s intent aligns with clarity and truthfulness — not just winning an argument. As Edward Tufte and Alberto Cairo argue, design integrity is a form of respect for the audience’s intelligence.</p>
+        </div>
+    </div>
+    <footer>
+        📊 DSC 106 — Introduction to Data Visualization | Winter 2026 · Persuasive or Deceptive? Critical design analysis
+    </footer>
+</div>
+</body>
+</html>

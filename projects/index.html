@@ -9,10 +9,24 @@
 <body>
   <h1 class="projects-title">Projects</h1>
   
-  <!-- Projects will be loaded here by projects.js -->
+  <!-- Search Input -->
+  <input
+    class="search-bar"
+    type="search"
+    aria-label="Search projects"
+    placeholder="🔍 Search projects..."
+  />
+  
+  <!-- Container for pie chart and legend side by side -->
+  <div class="pie-chart-container">
+    <svg id="projects-pie-plot" viewBox="-50 -50 100 100"></svg>
+    <ul class="legend"></ul>
+  </div>
+  
+  <!-- Projects will be loaded here -->
+  <h2>All Projects</h2>
   <div class="projects"></div>
   
-  <!-- Import scripts (order matters!) -->
   <script type="module" src="../global.js"></script>
   <script type="module" src="projects.js"></script>
 </body>

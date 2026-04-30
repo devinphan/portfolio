@@ -90,6 +90,67 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 2px solid oklch(80% 3% 200);
 }
 
+/* ========== PROJECT STYLES ========== */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.projects article {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-color, oklch(50% 10% 200 / 40%));
+  border-radius: 12px;
+  padding: 1rem;
+  background: canvas;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.projects article:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.projects h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+}
+
+.projects img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+}
+
+/* ========== PROJECT YEAR STYLES ========== */
+.project-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.project-content p {
+  margin: 0;
+  line-height: 1.4;
+  color: canvastext;
+}
+
+.project-year {
+  font-family: Baskerville, 'Baskerville Old Face', 'Goudy Old Style', Garamond, 'Times New Roman', serif;
+  font-variant-numeric: oldstyle-nums;
+  font-size: 0.85rem;
+  color: oklch(50% 10% 200 / 70%);
+  margin: 0;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border-color, oklch(50% 10% 200 / 30%));
+  letter-spacing: 0.5px;
+  text-align: right;
+}
+
 /* ========== FORM STYLES ========== */
 form {
   display: grid;
@@ -113,31 +174,103 @@ button {
   justify-self: start;
 }
 
-/* ========== PROJECTS GRID ========== */
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5em;
-  margin-top: 2em;
-}
-
-.projects article {
-  display: grid;
-  grid-template-rows: subgrid;
-  grid-row: span 3;
-  gap: 0.5em;
+/* ========== GITHUB STATS STYLES ========== */
+.stats-selector {
+  background: canvas;
   border: 1px solid var(--border-color, oklch(50% 10% 200 / 40%));
-  border-radius: 8px;
-  padding: 1em;
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
-.projects h2 {
+.stats-selector label {
+  font-weight: bold;
+  color: var(--color-accent, oklch(65% 50% 0));
+}
+
+.stats-selector select {
+  font: inherit;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color, oklch(50% 10% 200 / 40%));
+  background: canvas;
+  color: canvastext;
+  cursor: pointer;
+  flex: 1;
+  min-width: 200px;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: canvas;
+  border: 1px solid var(--border-color, oklch(50% 10% 200 / 40%));
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin: 1rem 0 2rem 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+  font-size: 3rem;
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-content h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  color: var(--color-accent, oklch(65% 50% 0));
+}
+
+.stat-value {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: canvastext;
+}
+
+.github-stats-full {
+  background: canvas;
+  border: 1px solid var(--border-color, oklch(50% 10% 200 / 40%));
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  margin: 1rem 0 2rem 0;
+}
+
+.github-stats-full h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--color-accent, oklch(65% 50% 0));
+}
+
+.github-stats-full dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1rem;
   margin: 0;
 }
 
-.projects img {
-  width: 100%;
-  height: auto;
+.github-stats-full dt {
+  font-weight: bold;
+  min-width: 120px;
+}
+
+.github-stats-full dd {
+  margin: 0;
+  word-break: break-word;
 }
 
 /* ========== RESUME PAGE STYLES ========== */
@@ -159,29 +292,269 @@ time {
   color: oklch(50% 10% 200);
 }
 
-/* ========== GITHUB STATS STYLES ========== */
-#profile-stats {
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 600px) {
+  .header-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .stats-selector {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .stat-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .github-stats-full dl {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+  
+  .github-stats-full dt {
+    margin-top: 0.5rem;
+  }
+  
+  .projects {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========== PIE CHART STYLES ========== */
+
+#projects-pie-plot {
+  max-width: 20em;
+  margin-block: 2em;
+  overflow: visible;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background: canvas;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+#projects-pie-plot path {
+  cursor: pointer;
+  transition: transform 0.2s ease, stroke-width 0.1s ease;
+  transform-origin: center;
+}
+
+/* Legend Styles */
+.pie-legend {
+  max-width: 20em;
+  margin: 1em auto;
+  padding: 1em;
   background: canvas;
   border: 1px solid var(--border-color, oklch(50% 10% 200 / 40%));
   border-radius: 12px;
-  padding: 1rem 1.5rem;
-  margin: 1rem 0 2rem 0;
-  max-width: 400px;
+  text-align: left;
 }
 
-#profile-stats dl {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.5rem 1rem;
-  margin: 0;
-}
-
-#profile-stats dt {
-  font-weight: bold;
+.pie-legend h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1rem;
   color: var(--color-accent, oklch(65% 50% 0));
+  text-align: center;
 }
 
-#profile-stats dd {
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.legend-color {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.legend-label {
+  color: canvastext;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  #projects-pie-plot {
+    max-width: 15em;
+  }
+  
+  .pie-legend {
+    max-width: 15em;
+  }
+}
+
+/* ========== PIE CHART CONTAINER (Side by Side) ========== */
+
+.pie-chart-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-block: 2em;
+  flex-wrap: wrap;
+}
+
+#projects-pie-plot {
+  max-width: 20em;
+  flex-shrink: 0;
+  overflow: visible;
+  display: block;
+  background: canvas;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+#projects-pie-plot path {
+  cursor: pointer;
+  transition: transform 0.2s ease, stroke-width 0.1s ease;
+  transform-origin: center;
+}
+
+/* ========== LEGEND STYLES ========== */
+
+.legend {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+  gap: 0.75rem;
   margin: 0;
-  text-align: right;
+  padding: 1rem;
+  list-style: none;
+  background: canvas;
+  border: 1px solid var(--border-color, oklch(50% 10% 200 / 40%));
+  border-radius: 12px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.85rem;
+  background: canvas;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.legend-item:hover {
+  background-color: color-mix(in oklch, var(--color-accent), canvas 90%);
+}
+
+.swatch {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 4px;
+  background-color: var(--color);
+  flex-shrink: 0;
+}
+
+.legend-label {
+  font-weight: 500;
+  color: canvastext;
+}
+
+.legend-count {
+  font-style: normal;
+  color: oklch(50% 10% 200 / 70%);
+  font-variant-numeric: oldstyle-nums;
+}
+
+/* Responsive: Stack chart and legend on small screens */
+@media (max-width: 600px) {
+  .pie-chart-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  #projects-pie-plot {
+    max-width: 15em;
+  }
+  
+  .legend {
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
+  }
+}
+
+/* ========== SEARCH BAR STYLES ========== */
+
+.search-bar {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  background: canvas;
+  color: canvastext;
+  border: 1px solid var(--border-color, oklch(50% 10% 200 / 40%));
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.search-bar:focus {
+  outline: none;
+  border-color: var(--color-accent, oklch(65% 50% 0));
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--color-accent), transparent 80%);
+}
+
+.search-bar::placeholder {
+  color: oklch(50% 10% 200 / 50%);
+}
+
+/* ========== STEP 5.1-5.2: Interactive Pie Chart Styles ========== */
+
+#projects-pie-plot path {
+  cursor: pointer;
+  transition: opacity 300ms, transform 200ms, stroke-width 100ms;
+  transform-origin: center;
+}
+
+.pie-slice.selected {
+  filter: drop-shadow(0 0 8px oklch(60% 45% 0 / 50%));
+}
+
+/* Step 5.1: Fade out other wedges when one is hovered */
+#projects-pie-plot:has(path:hover) {
+  path:not(:hover) {
+    opacity: 0.5;
+  }
+}
+
+/* Legend item styling */
+.legend-item {
+  cursor: pointer;
+  transition: all 200ms ease;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+}
+
+.legend-item:hover {
+  background-color: color-mix(in oklch, var(--color-accent), canvas 90%);
+  transform: translateX(4px);
+}
+
+.legend-item.selected {
+  background-color: color-mix(in oklch, oklch(60% 45% 0), canvas 85%);
+  font-weight: bold;
+}
+
+.legend-item.selected .swatch {
+  box-shadow: 0 0 0 2px canvas, 0 0 0 4px oklch(60% 45% 0);
+}
+
+/* Step 5.2: Selected wedge color */
+.pie-slice.selected {
+  fill: oklch(60% 45% 0) !important;
+  stroke-width: 2;
+  transform: scale(1.02);
 }
