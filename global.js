@@ -27,7 +27,7 @@ export async function fetchJSON(url) {
   }
 }
 
-// ========== STEP 1.4: renderProjects Function (UPDATED with year) ==========
+// ========== STEP 1.4: renderProjects Function ==========
 
 function escapeHTML(str) {
   if (!str) return '';
@@ -94,12 +94,13 @@ export function enhanceGitHubData(data) {
   };
 }
 
-// ========== Navigation Menu (Step 3 from earlier) ==========
+// ========== Navigation Menu (Step 3) ==========
 const pages = [
   { url: '', title: 'Home' },
   { url: 'projects/', title: 'Projects' },
   { url: 'contact/', title: 'Contact' },
   { url: 'Resume/', title: 'Resume' },
+  { url: 'meta/', title: 'Meta' },           // ← Added Meta page
   { url: 'https://github.com/devinphan', title: 'GitHub' }
 ];
 
