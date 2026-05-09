@@ -558,3 +558,274 @@ time {
   stroke-width: 2;
   transform: scale(1.02);
 }
+
+/* ========== META/STATS PAGE STYLES ========== */
+
+.meta-title {
+  margin-bottom: 0.5rem;
+}
+
+.meta-description {
+  margin-bottom: 2rem;
+  color: oklch(50% 10% 200 / 70%);
+}
+
+/* Stats definition list styling */
+.stats {
+  background: canvas;
+  border: 1px solid var(--border-color, oklch(50% 10% 200 / 40%));
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin: 1rem 0 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.stats dt {
+  font-size: 0.85rem;
+  font-weight: normal;
+  color: oklch(50% 10% 200 / 70%);
+  letter-spacing: 0.5px;
+}
+
+.stats dd {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin: 0;
+  color: var(--color-accent, oklch(65% 50% 0));
+  line-height: 1.2;
+}
+
+.stats abbr {
+  text-decoration: none;
+  cursor: help;
+}
+
+/* Responsive stats grid */
+@media (max-width: 600px) {
+  .stats {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .stats dd {
+    font-size: 1.5rem;
+  }
+}
+
+/* ========== SCATTERPLOT STYLES ========== */
+
+#chart {
+  margin: 2rem 0;
+  overflow-x: auto;
+}
+
+#chart svg {
+  background: canvas;
+  border-radius: 12px;
+  border: 1px solid var(--border-color, oklch(50% 10% 200 / 40%));
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Gridline styling - make them subtle */
+.gridlines line {
+  stroke: oklch(50% 10% 200 / 20%);
+  stroke-dasharray: 4, 4;
+}
+
+/* Axis styling */
+#chart .domain,
+#chart .tick line {
+  stroke: oklch(50% 10% 200 / 50%);
+}
+
+#chart .tick text {
+  fill: canvastext;
+  font-size: 11px;
+}
+
+/* Dots hover effect */
+.dots circle {
+  transition: r 0.2s ease, opacity 0.2s ease;
+  cursor: pointer;
+}
+
+.dots circle:hover {
+  r: 10;
+  opacity: 1;
+  stroke-width: 2;
+}
+
+/* ========== STEP 3: TOOLTIP STYLES ========== */
+
+/* Info definition list styling */
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+dl.info dt {
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: oklch(50% 10% 200 / 70%);
+}
+
+dl.info dd {
+  margin: 0;
+  font-weight: 500;
+  font-size: 0.85rem;
+  word-break: break-word;
+}
+
+dl.info a {
+  color: var(--color-accent, oklch(65% 50% 0));
+  text-decoration: none;
+}
+
+dl.info a:hover {
+  text-decoration: underline;
+}
+
+/* Tooltip specific styling */
+.tooltip {
+  position: fixed;
+  background: color-mix(in oklch, canvas, canvastext 5%);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color, oklch(50% 10% 200 / 40%));
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  max-width: 300px;
+  pointer-events: none;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.tooltip[hidden] {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Scatterplot dot hover effects */
+.dots circle {
+  transition: r 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+.dots circle:hover {
+  r: 10;
+  opacity: 1;
+  transform: scale(1.3);
+  stroke-width: 2;
+}
+
+/* Gridline styling */
+.gridlines line {
+  stroke: oklch(50% 10% 200 / 15%);
+  stroke-dasharray: 4, 4;
+}
+
+/* Axis styling */
+#chart .domain,
+#chart .tick line {
+  stroke: oklch(50% 10% 200 / 30%);
+}
+
+#chart .tick text {
+  fill: canvastext;
+  font-size: 11px;
+}
+
+#chart {
+  margin: 2rem 0;
+  overflow-x: auto;
+}
+
+#chart svg {
+  background: canvas;
+  border-radius: 12px;
+  border: 1px solid var(--border-color, oklch(50% 10% 200 / 40%));
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* ========== STEP 4: SIZE LEGEND STYLES ========== */
+
+.size-legend {
+  background: color-mix(in oklch, canvas, canvastext 5%);
+  backdrop-filter: blur(4px);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color, oklch(50% 10% 200 / 30%));
+  pointer-events: none;
+}
+
+.size-legend text {
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Optional: Add a tooltip for each dot to show lines changed */
+.dots circle {
+  cursor: pointer;
+  transition: fill-opacity 0.2s ease, r 0.2s ease, stroke-width 0.1s ease;
+}
+
+/* ========== STEP 5: BRUSHING STYLES ========== */
+
+/* Marching ants animation for brush selection */
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8; /* 5 + 3 */
+  }
+}
+
+.selection {
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}
+
+/* Selected dots styling */
+circle.selected {
+  fill: #ff6b6b !important;
+  stroke: white;
+  stroke-width: 2;
+  r: 8;
+  filter: drop-shadow(0 0 4px rgba(255, 107, 107, 0.5));
+}
+
+/* Brush overlay styling */
+.overlay {
+  cursor: crosshair;
+}
+
+/* Language breakdown styling */
+#language-breakdown {
+  margin-top: 1rem;
+}
+
+#language-breakdown dt {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--color-accent, oklch(65% 50% 0));
+}
+
+#selection-count {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  background: color-mix(in oklch, var(--color-accent), canvas 90%);
+  border-radius: 8px;
+  text-align: center;
+}

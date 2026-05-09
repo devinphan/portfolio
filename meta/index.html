@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Analysis - Devin Phan</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <h1 class="meta-title">Code Analysis</h1>
+  
+  <p class="meta-description">
+    This page displays statistics about my codebase, including lines of code,
+    file distribution, and code metrics across the entire project.
+  </p>
+  
+  <!-- Stats container -->
+  <div id="stats"></div>
+  
+  <!-- Scatterplot container -->
+  <h2>Commits by Time of Day</h2>
+  <div id="chart"></div>
+  
+  <!-- Selection count display -->
+  <p id="selection-count">No commits selected</p>
+  
+  <!-- Language breakdown container -->
+  <h3>Language Breakdown for Selected Commits</h3>
+  <dl id="language-breakdown" class="stats"></dl>
+  
+  <!-- Tooltip element -->
+  <dl id="commit-tooltip" class="info tooltip" hidden>
+    <dt>Commit</dt>
+    <dd>
+      <a href="" id="commit-link" target="_blank"></a>
+    </dd>
+    <dt>Date</dt>
+    <dd id="commit-date"></dd>
+    <dt>Time</dt>
+    <dd id="commit-time"></dd>
+    <dt>Author</dt>
+    <dd id="commit-author"></dd>
+    <dt>Lines changed</dt>
+    <dd id="commit-lines"></dd>
+  </dl>
+  
+  <script type="module" src="main.js"></script>
+</body>
+</html>

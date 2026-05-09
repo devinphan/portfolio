@@ -1,0 +1,15 @@
+{
+    "name": "portfolio",
+    "version": "1.0.0",
+    "description": "Devin Phan's portfolio website",
+    "main": "global.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "devDependencies": {
+      "elocuent": "^0.1.0"
+    },
+    "keywords": [],
+    "author": "Devin Phan",
+    "license": "ISC"
+  }
